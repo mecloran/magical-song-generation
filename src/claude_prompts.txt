@@ -1,0 +1,54 @@
+I want you to help me write a react javascript front-end site.
+It should be a single page app.
+I want you to use the latest version of react.
+At the top of the page I want a header that says "Magical Song Generation"
+
+
+Below that I want to show the following text that has controls for editing pieces of it built-in to it:
+
+generation_string: "Generate lyrics for a <song_style> song that is <song_type> about <subject_person> who <tidbits>."
+
+Each field above that have <> around it should be of the following types:
+  Fieldname: song_style        Controltype: dropdown      Options: country, rap, rock and roll  
+  Fieldname: song_type         Controltype: dropdown      Options: love song, honoring, roasting
+  Fieldname: subject_person    Controltype: text_entry    Suggestion text: Enter Name of Subject
+  Fieldname: tidbits           Controltype: text_entry    Suggestion text: Enter tidbits, separate with commas
+
+Immediately below the generation_string, there should be a series of fields laid out to show the lyrics of the eventually generated song.
+The lyrics that are going to be generated will be broken into a series of text boxes labeled:
+     Verse 1
+     Verse 2
+     Chorus
+     Verse 3
+     Bridge
+     Outro
+
+Each of these text boxes should be on its own "line" and fill only the left 1/2 of the screen (i.e. only one box per line) and the text inside each should be formatted with the same line breaks that came back from the API call. (i.e. each box will typically have 4 lines of text in it.).
+
+Then a "Generate" button should be centered below series of lyrics fields.
+
+The generate button should call the Open AI API for GPT-4o (Read the api key from a file called api_key.txt and be sure the model string is 'gpt-4o') with the following super prompt: <generate_string> + "Be sure to have the song have exactly 2 verses, a chorus, then a third verse, a bridge and then an outro. Make each verse 4 lines long. Wrap each tag with [] (i.e. [Verse 1], [Verse 2], etc.)
+
+Below the generate button there should be a line and then two more text boxes - one should contain the string that was sent off to the API (Raw API Input) and the one below that should contain the raw text that was returned from the API call (Raw API Output).
+
+Once the generate button is pressed, add a timer underneath it counting the seconds waiting for a response and/or if there is any error that occurs.
+
+Once the generate buttton has been pressed and the results have come back do the following 3 things:
+   1) Attach to the right side of each box (no space, directly attached) a text entry box that is labeled <[Verse #, Chorus, etc.] Changes to make> and has the suggestion text of "Type something like 'she is a redhead' or 'we went sailing, not fishing'". 
+   2)Add a new text entry box (labeled Overall Lyric Changes) below the Outro box that has the suggestion text "Type something like 'make it funnier' or 'add references to faith.'"
+   3) Add a button next to Generate that reads "Make This Song".
+      
+Once anything is typed in any of the fields (or any drop-down is changed) then make all the text in the lyrics boxes change color to red and change the generate button to read "Regenerate".
+
+When the Regenerate button is pressed (i.e. after a change is suggested), I want you to generate a new super-prompt to open ai, send it and then update. If one of the generation_string inputs was changed, then start over with the original super prompt. But if one of the "change something" boxes had text typed into it, then here is the new structure of the new super-prompt:
+   The user is in the middle of creating lyrics for an AI song generation app and previously sent the following string <the prior API input string that was sent> and got back the following song lyrics: <the previous API output string>. The user would now like to change <[verse #, chorus, etc.] that had something entered in the '[verse, chorus,etc.] Changes' box> with the following changes <the contents of the [verse #, chorus, etc.] Changes text_entry box. <If the Overall Song Changes box has anything in it, then add: "In addition, the user would like to make the following overall changes to the song."> Be sure to continue returning exactly 2 verses, a chorus, then a third verse, a bridge and then an outro. Make each verse 4 lines long. Wrap each tag with [] (i.e. [Verse 1], [Verse 2], etc.)
+
+If the 'Make This Song' button is pressed then I want you to use suno.ai to paste the lyrics in as a custom set of lyrics and then retrieve the graphics for the two generated songs and the URL for the play buttons and put them below the two buttons.
+
+
+
+
+
+
+
+
