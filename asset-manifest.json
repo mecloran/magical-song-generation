@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/magical-song-generator/static/css/main.888af219.css",
+    "main.js": "/magical-song-generator/static/js/main.7ed519ae.js",
+    "static/js/453.f9bd066f.chunk.js": "/magical-song-generator/static/js/453.f9bd066f.chunk.js",
+    "index.html": "/magical-song-generator/index.html",
+    "main.888af219.css.map": "/magical-song-generator/static/css/main.888af219.css.map",
+    "main.7ed519ae.js.map": "/magical-song-generator/static/js/main.7ed519ae.js.map",
+    "453.f9bd066f.chunk.js.map": "/magical-song-generator/static/js/453.f9bd066f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.888af219.css",
+    "static/js/main.7ed519ae.js"
+  ]
+}
